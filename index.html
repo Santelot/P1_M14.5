@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook-P1-M14.5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .activity {
+            margin-bottom: 20px;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s;
+        }
+        .banner:hover {
+            background-color: #45a049;
+        }
+        .banner hr {
+            border: none;
+            border-top: 1px solid white;
+            margin: 5px 0;
+        }
+        .subtitle {
+            font-size: 0.9em;
+            color: #e0e0e0;
+        }
+        .content {
+            display: none;
+            padding: 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            const selectedTime = document.getElementById('class-time').value;
+
+            const step3Activity2 = document.getElementById('activity-2-step-3');
+            const activity2 = document.getElementById('activity-2');
+
+            if (selectedTime === '45') {
+                if (step3Activity2) step3Activity2.style.display = 'none';
+                if (activity2) activity2.style.display = 'block';
+            } else if (selectedTime === '40') {
+                if (activity2) activity2.style.display = 'none';
+            } else {
+                if (step3Activity2) step3Activity2.style.display = 'block';
+                if (activity2) activity2.style.display = 'block';
+            }
+
+            document.getElementById('selected-time').innerText = `Tiempo efectivo de clase: ${selectedTime} minutos`;
+        }
+
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        Playbook-P1-M14.5
+    </div>
+
+    <div class="container">
+        <div class="dropdown">
+            <label for="class-time">Tiempo efectivo de Clase:</label>
+            <select id="class-time" onchange="updateActivities()">
+                <option value="50">50 minutos</option>
+                <option value="45">45 minutos</option>
+                <option value="40">40 minutos</option>
+            </select>
+        </div>
+
+        <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+       
+<!-- Actividad 0 -->
+<div id="activity-0" class="activity">
+    <div class="banner" onclick="toggleContent('activity-0-content')">
+        <div class="title">🔍 Actividad 0: Revisión de Misión</div>
+        <hr>
+        <div class="subtitle">Verificación inicial del equipo y materiales necesarios para la clase.</div>
+    </div>
+    <div id="activity-0-content" class="content">
+        <table>
+            <tr>
+                <th>Acción</th>
+                <th>Diálogo Sugerido</th>
+            </tr>
+            <tr>
+                <td>
+                    Proyectar la diapositiva 1 y revisar todos los recursos para asegurar que:
+                    <ul>
+                        <li>Los dispositivos tienen acceso a Scratch Jr. (web o aplicación) y funcionan correctamente.</li>
+                        <li>Cada estudiante tiene un set de bloques de LEGO (si son necesarios).</li>
+                    </ul>
+                </td>
+                <td>N/A</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 1 -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('activity-1-content')">
+        <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club ⏰ Tiempo: 2.5 minutos</div>
+        <hr>
+        <div class="subtitle">Bienvenida al grupo, agradecimiento y presentación de los objetivos del día.</div>
+    </div>
+    <div id="activity-1-content" class="content">
+        <table>
+            <tr>
+                <th>Acción</th>
+                <th>Diálogo Sugerido</th>
+            </tr>
+            <tr>
+                <td><strong>Paso 1:</strong> Proyectar la diapositiva 2 "¡Bienvenidos, Genios!".</td>
+                <td>"¡Hola, Genios! 🌟 ¿Listos para una nueva aventura? Hoy vamos a explorar el fascinante mundo de Scratch Jr. ¡Vamos a aprender cómo dar vida a nuestros personajes y crear historias increíbles! 🚀"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 2:</strong> Proyectar la diapositiva 3 "¿Cómo se sienten hoy?" con opciones visuales (Pose de Superhéroe y Pose de Explorador). Pedir a los estudiantes que utilicen estas poses para expresar su estado.</td>
+                <td>"¡Antes de empezar, quiero saber cómo se sienten! Si se sienten llenos de energía y listos para la acción, pónganse en Pose de Superhéroe: manos en la cintura y mirada al frente. Si se sienten curiosos, pónganse en Pose de Explorador. ¡Muéstrenme sus poses!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 3:</strong> Proyectar la diapositiva 4 "Ritual de Agradecimiento" e invitar a los estudiantes a participar en el ritual.</td>
+                <td>"Ahora todos juntos, juntemos nuestras manos y digamos: '¡Gracias por estar aquí, Genios! Hoy vamos a aprender, crear y divertirnos juntos. ¡Vamos a darle vida a nuestros personajes en Scratch Jr.!' ¡Gran trabajo, Genios!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 4:</strong> Proyectar la diapositiva 5 "Objetivos de la Misión". El maestro explica los objetivos del día de manera clara y motivadora.</td>
+                <td>"Hoy vamos a trabajar en tres cosas importantes: 1) Usar bloques de inicio y fin en Scratch Jr., 2) Crear una historia con dos personajes que interactúan, y 3) Compartir nuestras creaciones en equipo. ¡Será un día increíble!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 2 -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('activity-2-content')">
+        <div class="title">🧠 Actividad 2: Brain Vitamin ⏰ Tiempo: 10 minutos</div>
+        <hr>
+        <div class="subtitle">Desafíos creativos para activar el pensamiento crítico y motricidad.</div>
+    </div>
+    <div id="activity-2-content" class="content">
+        <table>
+            <tr>
+                <th>Acción</th>
+                <th>Diálogo Sugerido</th>
+            </tr>
+            <tr>
+                <td><strong>Paso 1:</strong> Proyectar la diapositiva 6 "Desafío de Colores". Pedir a los estudiantes que levanten el bloque de color indicado en la pantalla y que sigan las acciones asociadas (ejemplo: rojo = aplaudir, azul = girar, amarillo = saltar en su lugar).</td>
+                <td>"¡Es hora de activarnos, Genios! Miren la pantalla, ¿listos para el Desafío de Colores? Si ven un bloque rojo, ¡aplaudan! Si ven azul, ¡giren! ¡Vamos a hacerlo más rápido cada vez!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 2:</strong> Proyectar la diapositiva 7 "Construye el Movimiento". Indicar a los estudiantes que usen sus bloques para representar una secuencia de movimientos (ejemplo: rojo, amarillo, azul = aplaudir, saltar, girar). Trabajar en equipos de dos para inventar nuevas secuencias.</td>
+                <td>"¡Ahora es tu turno! Usa tus bloques para crear una secuencia de movimientos. Por ejemplo, rojo, amarillo, azul puede ser: aplaudir, saltar, girar. ¡Comparte tu idea con un compañero y hagan juntos una nueva secuencia!"</td>
+            </tr>
+            <tr id="activity-2-step-3">
+                <td><strong>Paso 3:</strong> Proyectar la diapositiva 8 "Movimiento en Equipo". Pedir a los estudiantes que unan sus secuencias con las de su compañero para crear un "baile" conjunto, y que luego lo representen frente al grupo.</td>
+                <td>"¡Genios, ahora trabajen juntos! Combinen sus secuencias para crear un baile o rutina única. Practíquenla y prepárense para mostrarla al grupo. ¡Estoy seguro de que será espectacular!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 3 -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('activity-3-content')">
+        <div class="title">🚀 Actividad 3: Challenge ⏰ Tiempo: 30 minutos</div>
+        <hr>
+        <div class="subtitle">Resolución de retos prácticos para programar trayectorias en Scratch Jr.</div>
+    </div>
+    <div id="activity-3-content" class="content">
+        <table>
+            <tr>
+                <th>Acción</th>
+                <th>Diálogo Sugerido</th>
+            </tr>
+            <tr>
+                <td><strong>Paso 1:</strong> Proyectar la diapositiva 9 "Desafío del Día". Explicar los niveles:</td>
+                <td>
+                    "¡Es hora de nuestro desafío, Genios! Hoy tenemos tres niveles. <br><br>
+                    <strong>Rookie:</strong> Programar un personaje para que avance, gire, y vuelva a avanzar, como si estuviera explorando un camino corto y divertido.<br><br>
+                    <strong>Master:</strong> Trabajar con dos personajes que tienen que recorrer trayectorias diferentes, como si estuvieran explorando un bosque y buscando un tesoro.<br><br>
+                    <strong>Hacker:</strong> Dos personajes trabajan juntos para dibujar un patrón de figura 8, como si estuvieran trazando un circuito. ¿Listos para elegir su nivel?"
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Paso 2:</strong> Proyectar la diapositiva 10 "Detalles del Desafío". Mostrar un ejemplo básico de bloques para cada nivel:</td>
+                <td>
+                    "Aquí están los detalles de cómo completar cada nivel: <br><br>
+                    <strong>Rookie:</strong> Inicio → Mover Adelante → Girar Derecha → Mover Adelante → Fin.<br><br>
+                    <strong>Master:</strong> Inicio → Mover Adelante → Girar Derecha/Izquierda → Repetir.<br><br>
+                    <strong>Hacker:</strong> Inicio → Mover Adelante → Girar Derecha → Mover Adelante → Girar Izquierda → Repetir (para ambos personajes)."
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Paso 3:</strong> Proyectar la diapositiva 11 "Tiempo para Crear". Supervisar y asistir a los estudiantes mientras trabajan en sus proyectos. Recordarles que pueden cambiar de nivel si terminan antes.</td>
+                <td>
+                    "¡Ahora es su turno, Genios! <br><br>
+                    <strong>Rookie:</strong> Piensen en cómo su personaje puede dar una vuelta divertida, avanzando y girando para completar el recorrido.<br><br>
+                    <strong>Master:</strong> Sus dos personajes deben moverse en caminos diferentes y encontrarse al final. ¡Usen bloques para girar y avanzar creativamente!<br><br>
+                    <strong>Hacker:</strong> Recuerden que sus personajes deben sincronizarse para crear un patrón de figura 8, ¡como si estuvieran trazando un circuito de carreras!"
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Paso 4:</strong> Proyectar la diapositiva 12 "Revisión de Objetivos". Invitar a los estudiantes a mostrar sus proyectos y reflexionar sobre sus logros y el proceso de programación.</td>
+                <td>
+                    "¡Qué increíble trabajo, Genios! Ahora quiero que compartan lo que lograron: <br><br>
+                    <strong>Rookie:</strong> Muéstranos cómo tu personaje se movió y giró. ¿Qué fue lo más fácil y lo más difícil?<br><br>
+                    <strong>Master:</strong> Expliquen cómo diseñaron los caminos para sus dos personajes. ¿Cómo resolvieron los giros o las colisiones?<br><br>
+                    <strong>Hacker:</strong> Muestren cómo sus personajes lograron dibujar la figura 8. ¿Qué aprendieron al sincronizar los movimientos?"
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 4 -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('activity-4-content')">
+        <div class="title">🤝 Actividad 4: Team Gnius ⏰ Tiempo: 10 minutos</div>
+        <hr>
+        <div class="subtitle">Trabajo en equipo para revisar y mejorar los proyectos.</div>
+    </div>
+    <div id="activity-4-content" class="content">
+        <table>
+            <tr>
+                <th>Acción</th>
+                <th>Diálogo Sugerido</th>
+            </tr>
+            <tr>
+                <td><strong>Paso 1:</strong> Proyectar la diapositiva 13 "Formación de Equipos". Pedir a los estudiantes que formen parejas con un compañero cercano. Explicar que cada equipo revisará el código del otro y dará retroalimentación constructiva.</td>
+                <td>"¡Genios, es hora de trabajar en equipo! Formen parejas con un compañero cercano. Revisen el proyecto de su compañero y observen qué hicieron bien y qué podrían mejorar. ¡El trabajo en equipo siempre nos hace más genios!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 2:</strong> Proyectar la diapositiva 14: Temporizador de 30 segundos para que los estudiantes se organicen en equipos.</td>
+                <td>"Tienen 30 segundos para encontrar un compañero y organizarse en equipos. ¡Busquen a alguien cercano con quien puedan colaborar y prepárense para revisar juntos!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 3:</strong> Proyectar la diapositiva 15 y pedir a los estudiantes que observen el trabajo de su compañero, formulando preguntas clave como:<br>
+                    - ¿Qué nivel completaste?<br>
+                    - ¿Qué bloques usaste?<br>
+                    - ¿Qué podrías mejorar?
+                </td>
+                <td>"¡Ahora es el momento de explorar el trabajo de su compañero! Hagan preguntas como: <br>
+                    - ¿Qué nivel completaste?<br>
+                    - ¿Qué fue lo más fácil o difícil?<br>
+                    - ¿Qué podrías mejorar? Recuerden, ¡la retroalimentación es clave para aprender juntos!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 4:</strong> Proyectar la diapositiva 16 "Turno de Maestro". Usar un temporizador de 3 minutos para que cada estudiante explique su proyecto a su compañero. Luego, cambiar roles.</td>
+                <td>"Uno será el maestro y explicará su proyecto paso a paso. El aprendiz escuchará y hará preguntas. Cambien roles cuando termine el tiempo. ¡Recuerden, enseñar también nos ayuda a aprender mejor!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 5:</strong> Proyectar la diapositiva 17 y usar un temporizador de 3 minutos para que las parejas trabajen juntas ajustando o mejorando sus proyectos según la retroalimentación recibida.</td>
+                <td>"¡Es hora de mejorar juntos! Usen las ideas que compartieron y ajusten sus proyectos para que sean aún más geniales. Recuerden, siempre podemos aprender algo nuevo trabajando en equipo. ¡Manos a la obra!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 6:</strong> Proyectar la diapositiva 18 "Reflexión en Equipo". Facilitar preguntas como:<br>
+                    - ¿Qué aprendiste de tu compañero?<br>
+                    - ¿Qué fue lo mejor de trabajar juntos?<br>
+                    - ¿Cómo se sintieron al compartir ideas?
+                </td>
+                <td>"Genios, reflexionemos sobre lo que aprendimos trabajando juntos. Cuéntenme: <br>
+                    - ¿Qué aprendieron de su compañero?<br>
+                    - ¿Qué fue lo mejor de colaborar?<br>
+                    - ¿Cómo se sintieron al compartir ideas? Recuerden que el aprendizaje compartido es un superpoder."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 5 -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('activity-5-content')">
+        <div class="title">🏅 Actividad 5: Honor the Lab ⏰ Tiempo: 3.5 minutos</div>
+        <hr>
+        <div class="subtitle">Reflexión final y organización del espacio de trabajo.</div>
+    </div>
+    <div id="activity-5-content" class="content">
+        <table>
+            <tr>
+                <th>Acción</th>
+                <th>Diálogo Sugerido</th>
+            </tr>
+            <tr>
+                <td><strong>Paso 1:</strong> Proyectar la diapositiva 19 "Revisión de Objetivos". Guiar a los estudiantes en una breve reflexión grupal sobre lo aprendido y logrado durante la clase.</td>
+                <td>"¡Genios, qué increíble trabajo hicieron hoy! Reflexionemos juntos: ¿Logramos los objetivos que nos propusimos al inicio? Usar bloques de movimiento, crear historias con personajes, y trabajar en equipo. ¡Lo lograron de manera brillante!"</td>
+            </tr>
+            <tr>
+                <td><strong>Paso 2:</strong> Proyectar la diapositiva 20 "Organización del Espacio". Pedir a los estudiantes que devuelvan sus materiales (tablets, bloques, etc.) a su lugar correspondiente. Supervisar mientras lo hacen para asegurarse de que el espacio quede limpio.</td>
+                <td>"Genios, ahora vamos a honrar nuestro espacio de trabajo. Por favor, devuelvan las tablets, los bloques de LEGO y cualquier otro material que usaron. Asegurémonos de que el aula quede tal y como la encontramos. ¡Gracias por su ayuda y compromiso!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+    </div>
+</body>
+</html>
+    
